@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Proyectos | Ciencia de Datos Fundasteam</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        fundasteam: {
+                            blue: '#0284c7',
+                            dark: '#0f172a',
+                            navy: '#030712',
+                            accent: '#06b6d4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.15), 0 8px 10px -6px rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Ambient Glow Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-sky-600/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Header Navigation (Fixed background overlay fix) -->
+    <header class="relative z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl sticky top-0 shadow-lg shadow-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-chart-diagram text-slate-950"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                        FUNDASTEAM <span class="text-xs px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30 font-semibold">Ciencia de Datos</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Exposición Oficial de Proyectos Web</p>
+                </div>
+            </div>
+
+            <!-- Action Button for Link Configurator -->
+            <button id="openConfigBtn" class="bg-slate-900 hover:bg-slate-800 text-sky-400 hover:text-sky-300 border border-sky-500/30 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
+                <i class="fa-solid fa-gear text-sky-400"></i>
+                <span>Configurar Links</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+        
+        <!-- Hero Section -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-graduation-cap"></i> Presentación de Proyectos Finales
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Galería de Proyectos - Ciencia de Datos
+            </h2>
+            <p class="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
+                Haz clic en cualquiera de las tarjetas a continuación para acceder e interactuar directamente con la aplicación web correspondiente.
+            </p>
+        </div>
+
+        <!-- 8 Projects Grid (4x2 / 2x4 / 1x8) -->
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dynamic JavaScript Content Generated Here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Fundación STEAM (Fundasteam) - Programa de Ciencia de Datos</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: Quick Edit Panel for Links -->
+    <div id="configModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl relative text-slate-200">
+            
+            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-link text-cyan-400"></i>
+                    <h3 class="font-bold text-white text-lg">Configurar Enlaces de los 8 Proyectos</h3>
+                </div>
+                <button id="closeConfigBtn" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="px-5 pt-3 text-xs text-slate-400">
+                Pega aquí las URLs (ej: https://streamlit-app.com) de las 8 páginas para que las tarjetas redirijan a ellas. Los cambios se guardarán en tu navegador.
+            </p>
+
+            <div id="configList" class="p-5 overflow-y-auto space-y-4 flex-1">
+                <!-- Inputs for 8 projects generated dynamically -->
+            </div>
+
+            <div class="p-4 border-t border-slate-800 flex justify-between items-center bg-slate-950/50 rounded-b-2xl">
+                <button id="resetDefaultsBtn" class="text-xs text-rose-400 hover:underline">
+                    Restablecer Predeterminados
+                </button>
+                <div class="flex gap-3">
+                    <button id="cancelConfigBtn" class="px-4 py-2 rounded-xl text-slate-400 text-xs font-semibold hover:text-white">Cancelar</button>
+                    <button id="saveConfigBtn" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Initial 8 Projects Default Data
+        const defaultProjects = [
+            {
+                id: 1,
+                title: "Proyecto 1: Análisis Exploratorio (EDA)",
+                description: "Limpieza de datos, detección de patrones e insights cualitativos utilizando registros de dataset real.",
+                tech: ["Python", "Pandas", "Seaborn"],
+                url: "https://example.com/proyecto1"
+            },
+            {
+                id: 2,
+                title: "Proyecto 2: Dashboards Interactivos",
+                description: "Visualización dinámica de indicadores clave de rendimiento (KPIs) e informes gráficos interactivos.",
+                tech: ["Power BI", "Streamlit", "Plotly"],
+                url: "https://example.com/proyecto2"
+            },
+            {
+                id: 3,
+                title: "Proyecto 3: Modelo de Regresión",
+                description: "Predicción de valores continuos y análisis estadístico inferencial para estimaciones futuras.",
+                tech: ["Scikit-Learn", "Python", "NumPy"],
+                url: "https://example.com/proyecto3"
+            },
+            {
+                id: 4,
+                title: "Proyecto 4: Clasificación y Machine Learning",
+                description: "Algoritmos supervisados de clasificación aplicados a segmentación y toma de decisiones.",
+                tech: ["Machine Learning", "Scikit-Learn"],
+                url: "https://example.com/proyecto4"
+            },
+            {
+                id: 5,
+                title: "Proyecto 5: Procesamiento de Lenguaje (NLP)",
+                description: "Análisis de sentimientos en redes sociales y extracción de texto automatizada.",
+                tech: ["Python", "NLTK", "Transformers"],
+                url: "https://example.com/proyecto5"
+            },
+            {
+                id: 6,
+                title: "Proyecto 6: Visión por Computadora",
+                description: "Detección de objetos y clasificación de imágenes utilizando redes neuronales.",
+                tech: ["OpenCV", "TensorFlow", "Keras"],
+                url: "https://example.com/proyecto6"
+            },
+            {
+                id: 7,
+                title: "Proyecto 7: Series Temporales",
+                description: "Modelos predictivos para pronóstico de tendencias basadas en datos cronológicos e históricos.",
+                tech: ["Prophet", "Statsmodels", "Pandas"],
+                url: "https://example.com/proyecto7"
+            },
+            {
+                id: 8,
+                title: "Proyecto 8: Aplicación Final de Ciencia de Datos",
+                description: "Integración completa de pipeline de datos, modelo predictivo y despliegue web interactivo.",
+                tech: ["Streamlit", "Python", "Cloud API"],
+                url: "https://example.com/proyecto8"
+            }
+        ];
+
+        let projects = [];
+
+        // DOM elements
+        const projectsGrid = document.getElementById('projectsGrid');
+        const configModal = document.getElementById('configModal');
+        const openConfigBtn = document.getElementById('openConfigBtn');
+        const closeConfigBtn = document.getElementById('closeConfigBtn');
+        const cancelConfigBtn = document.getElementById('cancelConfigBtn');
+        const saveConfigBtn = document.getElementById('saveConfigBtn');
+        const resetDefaultsBtn = document.getElementById('resetDefaultsBtn');
+        const configList = document.getElementById('configList');
+
+        // Load data from localStorage or use defaults
+        function loadProjects() {
+            const saved = localStorage.getItem('fundasteam_projects');
+            if (saved) {
+                try {
+                    projects = JSON.parse(saved);
+                } catch(e) {
+                    projects = [...defaultProjects];
+                }
+            } else {
+                projects = [...defaultProjects];
+            }
+        }
+
+        // Render project cards
+        function renderCards() {
+            projectsGrid.innerHTML = projects.map((p, index) => `
+                <a href="${p.url}" target="_blank" rel="noopener noreferrer" 
+                   class="project-card group bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    
+                    <div class="absolute -right-6 -top-6 w-20 h-20 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+
+                    <div>
+                        <!-- Header with index and link icon -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 font-bold text-xs flex items-center justify-center">
+                                0${index + 1}
+                            </span>
+                            <div class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 group-hover:bg-cyan-500 group-hover:text-slate-950 flex items-center justify-center text-xs transition-all">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </div>
+
+                        <!-- Project Title & Description -->
+                        <h3 class="font-bold text-white text-base group-hover:text-cyan-400 transition-colors mb-2 leading-snug">
+                            ${p.title}
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            ${p.description}
+                        </p>
+                    </div>
+
+                    <!-- Tech Tags -->
+                    <div class="pt-4 border-t border-slate-800/80">
+                        <div class="flex flex-wrap gap-1.5">
+                            ${p.tech.map(t => `
+                                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-cyan-300 border border-slate-700/60">
+                                    ${t}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Render Configuration Panel inputs
+        function renderConfigInputs() {
+            configList.innerHTML = projects.map((p, idx) => `
+                <div class="p-3.5 bg-slate-950/80 border border-slate-800 rounded-xl space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-sky-400">Proyecto #${idx + 1}</span>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-0.5">Título del Proyecto</label>
+                        <input type="text" id="cfg-title-${idx}" value="${p.title}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-0.5">Descripción Corta</label>
+                        <input type="text" id="cfg-desc-${idx}" value="${p.description}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-0.5">Tecnologías / Herramientas (separadas por comas)</label>
+                        <input type="text" id="cfg-tech-${idx}" value="${p.tech ? p.tech.join(', ') : ''}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-cyan-400 focus:outline-none focus:border-cyan-500" placeholder="Ej: Scikit-Learn, Python, NumPy">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-0.5">URL / Enlace Hipervinculado</label>
+                        <input type="url" id="cfg-url-${idx}" value="${p.url}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-cyan-300 focus:outline-none focus:border-cyan-500" placeholder="https://...">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Save Modal Inputs to State and LocalStorage
+        function saveConfig() {
+            projects.forEach((p, idx) => {
+                const titleVal = document.getElementById(`cfg-title-${idx}`).value.trim();
+                const descVal = document.getElementById(`cfg-desc-${idx}`).value.trim();
+                const techVal = document.getElementById(`cfg-tech-${idx}`).value.trim();
+                const urlVal = document.getElementById(`cfg-url-${idx}`).value.trim();
+
+                if (titleVal) p.title = titleVal;
+                if (descVal) p.description = descVal;
+                if (urlVal) p.url = urlVal;
+                
+                // Parse comma-separated tech tools
+                if (techVal) {
+                    p.tech = techVal.split(',').map(t => t.trim()).filter(t => t.length > 0);
+                } else {
+                    p.tech = [];
+                }
+            });
+
+            localStorage.setItem('fundasteam_projects', JSON.stringify(projects));
+            renderCards();
+            closeConfigModal();
+        }
+
+        // Modal Handlers
+        function openConfigModal() {
+            renderConfigInputs();
+            configModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeConfigModal() {
+            configModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Event Listeners
+        openConfigBtn.addEventListener('click', openConfigModal);
+        closeConfigBtn.addEventListener('click', closeConfigModal);
+        cancelConfigBtn.addEventListener('click', closeConfigModal);
+        saveConfigBtn.addEventListener('click', saveConfig);
+
+        resetDefaultsBtn.addEventListener('click', () => {
+            if (confirm('¿Deseas restablecer los títulos y enlaces predeterminados?')) {
+                projects = JSON.parse(JSON.stringify(defaultProjects));
+                localStorage.removeItem('fundasteam_projects');
+                renderConfigInputs();
+                renderCards();
+            }
+        });
+
+        // Initialize App
+        loadProjects();
+        renderCards();
+    </script>
+</body>
+</html>
