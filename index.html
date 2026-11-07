@@ -1,362 +1,382 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Proyectos | Ciencia de Datos Fundasteam</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        fundasteam: {
-                            blue: '#0284c7',
-                            dark: '#0f172a',
-                            navy: '#030712',
-                            accent: '#06b6d4'
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposición de Proyectos Web | Fundasteam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
             }
+          }
         }
-    </script>
-    
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.15), 0 8px 10px -6px rgba(6, 182, 212, 0.1);
-        }
-    </style>
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(51, 65, 85, 0.8);
+      border-radius: 4px;
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-white">
 
-    <!-- Ambient Glow Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-sky-600/15 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-3xl"></div>
-    </div>
-
-    <!-- Header Navigation (Fixed background overlay fix) -->
-    <header class="relative z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl sticky top-0 shadow-lg shadow-black/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-cyan-500/20">
-                    <i class="fa-solid fa-chart-diagram text-slate-950"></i>
-                </div>
-                <div>
-                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                        FUNDASTEAM <span class="text-xs px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30 font-semibold">Ciencia de Datos</span>
-                    </h1>
-                    <p class="text-xs text-slate-400">Exposición Oficial de Proyectos Web</p>
-                </div>
-            </div>
-
-            <!-- Action Button for Link Configurator -->
-            <button id="openConfigBtn" class="bg-slate-900 hover:bg-slate-800 text-sky-400 hover:text-sky-300 border border-sky-500/30 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2">
-                <i class="fa-solid fa-gear text-sky-400"></i>
-                <span>Configurar Links</span>
-            </button>
+  <!-- Header fijo superior sin transparencias no deseadas -->
+  <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+          <i class="fa-solid fa-graduation-cap text-white text-lg"></i>
         </div>
-    </header>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-extrabold text-xl tracking-tight text-white">FUNDASTEAM</h1>
+            <span class="text-[10px] font-bold tracking-widest uppercase bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded-full">Ciencia de Datos</span>
+          </div>
+          <p class="text-xs text-slate-400 font-medium">Exposición Oficial de Proyectos Web</p>
+        </div>
+      </div>
 
-    <!-- Main Container -->
-    <main class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+      <div class="flex items-center gap-3">
+        <button id="openConfigBtn" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 hover:border-cyan-500/60 px-4 py-2 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-cyan-950/40">
+          <i class="fa-solid fa-gear text-cyan-400"></i>
+          <span>Configurar Links</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Hero / Presentación -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <section class="mb-12 text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 mb-4">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        8 Aplicaciones Desarrolladas
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+        Galería Digital de <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">Proyectos Finales</span>
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+        Haz clic sobre cualquiera de las tarjetas presentadas a continuación para abrir la aplicación web desplegada en vivo en una nueva pestaña.
+      </p>
+    </section>
+
+    <!-- Grilla de los 8 proyectos -->
+    <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Tarjetas insertadas por Javascript -->
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Fundasteam - Curso de Ciencia de Datos. Todos los derechos reservados.</p>
+      <p class="text-slate-600">Construido para presentación de portafolios web.</p>
+    </div>
+  </footer>
+
+  <!-- Modal de Configuración rápida -->
+  <div id="configModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-cyan-400"></i> Editor de Proyectos y Enlaces
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Modifica los enlaces, títulos, descripciones, herramientas y colores personalizados de los 8 proyectos.</p>
+        </div>
+        <button id="closeConfigBtn" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6" id="modalFormContainer">
+        <!-- Formulario dinámico generado desde Javascript -->
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between gap-3">
+        <button id="resetDefaultsBtn" class="text-xs text-slate-400 hover:text-red-400 font-semibold px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors">
+          Restablecer a valores iniciales
+        </button>
+        <div class="flex items-center gap-3">
+          <button id="cancelModalBtn" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-800 transition-colors">
+            Cancelar
+          </button>
+          <button id="saveConfigBtn" class="px-5 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:brightness-110 shadow-lg shadow-cyan-500/20 transition-all">
+            Guardar Cambios
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Datos por defecto de los 8 proyectos (Editables permanentemente aquí en el código)
+    const defaultProjects = [
+      {
+        id: 1,
+        title: "Proyecto 1: Análisis Exploratorio de Datos",
+        description: "Limpieza y análisis estadístico interactivo de fuentes de datos complejas.",
+        url: "https://example.com/proyecto1",
+        techs: ["Python", "Pandas", "Matplotlib"],
+        accentColor: "#00d2ff"
+      },
+      {
+        id: 2,
+        title: "Proyecto 2: Machine Learning Predictivo",
+        description: "Modelo supervisado para clasificación y evaluación de rendimiento.",
+        url: "https://example.com/proyecto2",
+        techs: ["Scikit-Learn", "Python", "NumPy"],
+        accentColor: "#8b5cf6"
+      },
+      {
+        id: 3,
+        title: "Proyecto 3: Dashboards de Negocios",
+        description: "Cuadro de mando analítico en tiempo real para toma de decisiones.",
+        url: "https://example.com/proyecto3",
+        techs: ["Streamlit", "Plotly", "Pandas"],
+        accentColor: "#10b981"
+      },
+      {
+        id: 4,
+        title: "Proyecto 4: Automatización y ETL",
+        description: "Pipelines de recolección, transformación y carga masiva de información.",
+        url: "https://example.com/proyecto4",
+        techs: ["Python", "SQL", "Pandas"],
+        accentColor: "#f59e0b"
+      },
+      {
+        id: 5,
+        title: "Proyecto 5: Redes Neuronales",
+        description: "Aplicación de Deep Learning para procesamiento y reconocimiento de patrones.",
+        url: "https://example.com/proyecto5",
+        techs: ["TensorFlow", "Keras", "Python"],
+        accentColor: "#ec4899"
+      },
+      {
+        id: 6,
+        title: "Proyecto 6: Extracción Web Scraper",
+        description: "Estructuración automatizada de datos a partir de plataformas web.",
+        url: "https://example.com/proyecto6",
+        techs: ["BeautifulSoup", "Python", "Requests"],
+        accentColor: "#3b82f6"
+      },
+      {
+        id: 7,
+        title: "Proyecto 7: API REST Analítica",
+        description: "Servicio en la nube para disponibilizar algoritmos analíticos.",
+        url: "https://example.com/proyecto7",
+        techs: ["FastAPI", "Uvicorn", "Python"],
+        accentColor: "#06b6d4"
+      },
+      {
+        id: 8,
+        title: "Proyecto 8: Handyman Express Portfolio",
+        description: "Plataforma web interactiva para gestión y portafolio de servicios técnicos.",
+        url: "https://handyman-express-lb9dy2y4e-portafolio-0062.vercel.app/",
+        techs: ["HTML5", "TailwindCSS", "JavaScript"],
+        accentColor: "#f97316"
+      }
+    ];
+
+    // Cargar proyectos guardados o predeterminados
+    function getStoredProjects() {
+      const stored = localStorage.getItem('fundasteam_projects_v2');
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {
+          console.error("Error al leer proyectos de localStorage", e);
+        }
+      }
+      return defaultProjects;
+    }
+
+    let projects = getStoredProjects();
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    const configModal = document.getElementById('configModal');
+    const openConfigBtn = document.getElementById('openConfigBtn');
+    const closeConfigBtn = document.getElementById('closeConfigBtn');
+    const cancelModalBtn = document.getElementById('cancelModalBtn');
+    const saveConfigBtn = document.getElementById('saveConfigBtn');
+    const resetDefaultsBtn = document.getElementById('resetDefaultsBtn');
+    const modalFormContainer = document.getElementById('modalFormContainer');
+
+    // Función para renderizar los recuadros
+    function renderProjects() {
+      projectsGrid.innerHTML = '';
+
+      projects.forEach((proj, idx) => {
+        const color = proj.accentColor || '#00d2ff';
         
-        <!-- Hero Section -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
-                <i class="fa-solid fa-graduation-cap"></i> Presentación de Proyectos Finales
+        // Formato para los Badges
+        const techBadgesHTML = (proj.techs || []).map(t => `
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full border transition-all"
+                style="background-color: ${color}15; color: ${color}; border-color: ${color}40;">
+            ${t.trim()}
+          </span>
+        `).join('');
+
+        const card = document.createElement('a');
+        card.href = proj.url || '#';
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.className = "group relative bg-slate-900/70 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-xl hover:shadow-2xl overflow-hidden block";
+        
+        // Resplandor de color al pasar el ratón (Hover background glow)
+        card.innerHTML = `
+          <div class="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+               style="background-color: ${color};"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-black px-3 py-1 rounded-lg border font-mono tracking-wider"
+                    style="color: ${color}; background-color: ${color}15; border-color: ${color}30;">
+                0${idx + 1}
+              </span>
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center border bg-slate-800/80 text-slate-400 group-hover:text-white transition-all group-hover:scale-110"
+                   style="border-color: ${color}30;">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs" style="color: ${color};"></i>
+              </div>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                Galería de Proyectos - Ciencia de Datos
-            </h2>
-            <p class="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
-                Haz clic en cualquiera de las tarjetas a continuación para acceder e interactuar directamente con la aplicación web correspondiente.
+
+            <h3 class="font-bold text-lg text-white mb-2 group-hover:text-cyan-300 transition-colors line-clamp-2">
+              ${proj.title}
+            </h3>
+
+            <p class="text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3">
+              ${proj.description}
             </p>
-        </div>
+          </div>
 
-        <!-- 8 Projects Grid (4x2 / 2x4 / 1x8) -->
-        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Dynamic JavaScript Content Generated Here -->
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="relative z-10 border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>© 2026 Fundación STEAM (Fundasteam) - Programa de Ciencia de Datos</p>
-        </div>
-    </footer>
-
-    <!-- MODAL: Quick Edit Panel for Links -->
-    <div id="configModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl relative text-slate-200">
-            
-            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-link text-cyan-400"></i>
-                    <h3 class="font-bold text-white text-lg">Configurar Enlaces de los 8 Proyectos</h3>
-                </div>
-                <button id="closeConfigBtn" class="text-slate-400 hover:text-white text-xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+          <div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80">
+              ${techBadgesHTML}
             </div>
+          </div>
+        `;
 
-            <p class="px-5 pt-3 text-xs text-slate-400">
-                Pega aquí las URLs (ej: https://streamlit-app.com) de las 8 páginas para que las tarjetas redirijan a ellas. Los cambios se guardarán en tu navegador.
-            </p>
+        projectsGrid.appendChild(card);
+      });
+    }
 
-            <div id="configList" class="p-5 overflow-y-auto space-y-4 flex-1">
-                <!-- Inputs for 8 projects generated dynamically -->
+    // Renderizar campos dentro del Modal
+    function renderModalForm() {
+      modalFormContainer.innerHTML = '';
+
+      projects.forEach((proj, i) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = "p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-3";
+        
+        itemDiv.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-400 font-mono">PROYECTO #${i + 1}</span>
+            <div class="flex items-center gap-2">
+              <label class="text-xs text-slate-400 font-medium">Color del Recuadro:</label>
+              <input type="color" value="${proj.accentColor || '#00d2ff'}" data-index="${i}" class="input-color w-8 h-8 rounded border-none bg-transparent cursor-pointer">
             </div>
+          </div>
 
-            <div class="p-4 border-t border-slate-800 flex justify-between items-center bg-slate-950/50 rounded-b-2xl">
-                <button id="resetDefaultsBtn" class="text-xs text-rose-400 hover:underline">
-                    Restablecer Predeterminados
-                </button>
-                <div class="flex gap-3">
-                    <button id="cancelConfigBtn" class="px-4 py-2 rounded-xl text-slate-400 text-xs font-semibold hover:text-white">Cancelar</button>
-                    <button id="saveConfigBtn" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20">
-                        Guardar Cambios
-                    </button>
-                </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Título del Proyecto</label>
+              <input type="text" value="${proj.title}" data-index="${i}" class="input-title w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-white outline-none">
             </div>
-        </div>
-    </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">URL Hipervinculada</label>
+              <input type="url" value="${proj.url}" data-index="${i}" class="input-url w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-cyan-300 outline-none font-mono">
+            </div>
+          </div>
 
-    <!-- JavaScript Application Logic -->
-    <script>
-        // Initial 8 Projects Default Data
-        const initialProjects = [
-  {
-    id: 1,
-    title: "Proyecto 1: Análisis Exploratorio",
-    description: "Limpieza y análisis de datos estadísticos con Python.",
-    url: "URL_DEL_PROYECTO_1",
-    techs: ["Python", "Pandas", "Matplotlib"],
-    accentColor: "#00d2ff"
-  },
-  {
-    id: 2,
-    title: "Proyecto 2: Machine Learning",
-    description: "Modelo predictivo de clasificación supervisada.",
-    url: "URL_DEL_PROYECTO_2",
-    techs: ["Scikit-Learn", "Python", "NumPy"],
-    accentColor: "#8b5cf6"
-  },
-  {
-    id: 3,
-    title: "Proyecto 3: Dashboard Interactivo",
-    description: "Visualización de métricas de negocio en tiempo real.",
-    url: "URL_DEL_PROYECTO_3",
-    techs: ["Streamlit", "Plotly", "Pandas"],
-    accentColor: "#10b981"
-  },
-  {
-    id: 4,
-    title: "Proyecto 4: Procesamiento de Datos",
-    description: "Automatización de flujos de datos y ETL.",
-    url: "URL_DEL_PROYECTO_4",
-    techs: ["Python", "SQL", "Pandas"],
-    accentColor: "#f59e0b"
-  },
-  {
-    id: 5,
-    title: "Proyecto 5: Redes Neuronales",
-    description: "Modelo de Deep Learning para reconocimiento de patrones.",
-    url: "URL_DEL_PROYECTO_5",
-    techs: ["TensorFlow", "Python", "Keras"],
-    accentColor: "#ec4899"
-  },
-  {
-    id: 6,
-    title: "Proyecto 6: Web Scraper de Datos",
-    description: "Extracción y estructuración masiva de datos web.",
-    url: "URL_DEL_PROYECTO_6",
-    techs: ["BeautifulSoup", "Python", "Requests"],
-    accentColor: "#3b82f6"
-  },
-  {
-    id: 7,
-    title: "Proyecto 7: API de Datos",
-    description: "Servicio backend para consulta de modelos analíticos.",
-    url: "URL_DEL_PROYECTO_7",
-    techs: ["FastAPI", "Python", "Uvicorn"],
-    accentColor: "#06b6d4"
-  },
-  {
-    id: 8,
-    title: "Proyecto 8: Handyman Express Portfolio",
-    description: "Aplicación web interactiva y portafolio de servicios.",
-    url: "https://handyman-express-lb9dy2y4e-portafolio-0062.vercel.app/",
-    techs: ["HTML5", "TailwindCSS", "JavaScript"],
-    accentColor: "#f97316" // Color personalizado para el proyecto 8
-  }
-];
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Descripción corta</label>
+            <input type="text" value="${proj.description}" data-index="${i}" class="input-desc w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none">
+          </div>
 
-        let projects = [];
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Tecnologías / Herramientas (separadas por comas)</label>
+            <input type="text" value="${(proj.techs || []).join(', ')}" data-index="${i}" class="input-techs w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none">
+          </div>
+        `;
 
-        // DOM elements
-        const projectsGrid = document.getElementById('projectsGrid');
-        const configModal = document.getElementById('configModal');
-        const openConfigBtn = document.getElementById('openConfigBtn');
-        const closeConfigBtn = document.getElementById('closeConfigBtn');
-        const cancelConfigBtn = document.getElementById('cancelConfigBtn');
-        const saveConfigBtn = document.getElementById('saveConfigBtn');
-        const resetDefaultsBtn = document.getElementById('resetDefaultsBtn');
-        const configList = document.getElementById('configList');
+        modalFormContainer.appendChild(itemDiv);
+      });
+    }
 
-        // Load data from localStorage or use defaults
-        function loadProjects() {
-            const saved = localStorage.getItem('fundasteam_projects');
-            if (saved) {
-                try {
-                    projects = JSON.parse(saved);
-                } catch(e) {
-                    projects = [...defaultProjects];
-                }
-            } else {
-                projects = [...defaultProjects];
-            }
-        }
+    // Eventos Abrir/Cerrar Modal
+    openConfigBtn.addEventListener('click', () => {
+      renderModalForm();
+      configModal.classList.remove('hidden');
+    });
 
-        // Render project cards
-        function renderCards() {
-            projectsGrid.innerHTML = projects.map((p, index) => `
-                <a href="${p.url}" target="_blank" rel="noopener noreferrer" 
-                   class="project-card group bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
-                    
-                    <div class="absolute -right-6 -top-6 w-20 h-20 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+    function closeModal() {
+      configModal.classList.add('hidden');
+    }
 
-                    <div>
-                        <!-- Header with index and link icon -->
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 font-bold text-xs flex items-center justify-center">
-                                0${index + 1}
-                            </span>
-                            <div class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 group-hover:bg-cyan-500 group-hover:text-slate-950 flex items-center justify-center text-xs transition-all">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </div>
-                        </div>
+    closeConfigBtn.addEventListener('click', closeModal);
+    cancelModalBtn.addEventListener('click', closeModal);
 
-                        <!-- Project Title & Description -->
-                        <h3 class="font-bold text-white text-base group-hover:text-cyan-400 transition-colors mb-2 leading-snug">
-                            ${p.title}
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
-                            ${p.description}
-                        </p>
-                    </div>
+    // Guardar cambios del formulario en localStorage
+    saveConfigBtn.addEventListener('click', () => {
+      const titleInputs = document.querySelectorAll('.input-title');
+      const urlInputs = document.querySelectorAll('.input-url');
+      const descInputs = document.querySelectorAll('.input-desc');
+      const techInputs = document.querySelectorAll('.input-techs');
+      const colorInputs = document.querySelectorAll('.input-color');
 
-                    <!-- Tech Tags -->
-                    <div class="pt-4 border-t border-slate-800/80">
-                        <div class="flex flex-wrap gap-1.5">
-                            ${p.tech.map(t => `
-                                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-cyan-300 border border-slate-700/60">
-                                    ${t}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </a>
-            `).join('');
-        }
+      projects = projects.map((proj, i) => {
+        return {
+          id: proj.id,
+          title: titleInputs[i].value,
+          url: urlInputs[i].value,
+          description: descInputs[i].value,
+          techs: techInputs[i].value.split(',').map(t => t.trim()).filter(Boolean),
+          accentColor: colorInputs[i].value
+        };
+      });
 
-        // Render Configuration Panel inputs
-        function renderConfigInputs() {
-            configList.innerHTML = projects.map((p, idx) => `
-                <div class="p-3.5 bg-slate-950/80 border border-slate-800 rounded-xl space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-sky-400">Proyecto #${idx + 1}</span>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-400 mb-0.5">Título del Proyecto</label>
-                        <input type="text" id="cfg-title-${idx}" value="${p.title}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-400 mb-0.5">Descripción Corta</label>
-                        <input type="text" id="cfg-desc-${idx}" value="${p.description}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-400 mb-0.5">Tecnologías / Herramientas (separadas por comas)</label>
-                        <input type="text" id="cfg-tech-${idx}" value="${p.tech ? p.tech.join(', ') : ''}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-cyan-400 focus:outline-none focus:border-cyan-500" placeholder="Ej: Scikit-Learn, Python, NumPy">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-400 mb-0.5">URL / Enlace Hipervinculado</label>
-                        <input type="url" id="cfg-url-${idx}" value="${p.url}" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-cyan-300 focus:outline-none focus:border-cyan-500" placeholder="https://...">
-                    </div>
-                </div>
-            `).join('');
-        }
+      localStorage.setItem('fundasteam_projects_v2', JSON.stringify(projects));
+      renderProjects();
+      closeModal();
+    });
 
-        // Save Modal Inputs to State and LocalStorage
-        function saveConfig() {
-            projects.forEach((p, idx) => {
-                const titleVal = document.getElementById(`cfg-title-${idx}`).value.trim();
-                const descVal = document.getElementById(`cfg-desc-${idx}`).value.trim();
-                const techVal = document.getElementById(`cfg-tech-${idx}`).value.trim();
-                const urlVal = document.getElementById(`cfg-url-${idx}`).value.trim();
+    // Restablecer valores iniciales
+    resetDefaultsBtn.addEventListener('click', () => {
+      if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
+        projects = JSON.parse(JSON.stringify(defaultProjects));
+        localStorage.removeItem('fundasteam_projects_v2');
+        renderModalForm();
+        renderProjects();
+      }
+    });
 
-                if (titleVal) p.title = titleVal;
-                if (descVal) p.description = descVal;
-                if (urlVal) p.url = urlVal;
-                
-                // Parse comma-separated tech tools
-                if (techVal) {
-                    p.tech = techVal.split(',').map(t => t.trim()).filter(t => t.length > 0);
-                } else {
-                    p.tech = [];
-                }
-            });
-
-            localStorage.setItem('fundasteam_projects', JSON.stringify(projects));
-            renderCards();
-            closeConfigModal();
-        }
-
-        // Modal Handlers
-        function openConfigModal() {
-            renderConfigInputs();
-            configModal.classList.remove('opacity-0', 'pointer-events-none');
-        }
-
-        function closeConfigModal() {
-            configModal.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        // Event Listeners
-        openConfigBtn.addEventListener('click', openConfigModal);
-        closeConfigBtn.addEventListener('click', closeConfigModal);
-        cancelConfigBtn.addEventListener('click', closeConfigModal);
-        saveConfigBtn.addEventListener('click', saveConfig);
-
-        resetDefaultsBtn.addEventListener('click', () => {
-            if (confirm('¿Deseas restablecer los títulos y enlaces predeterminados?')) {
-                projects = JSON.parse(JSON.stringify(defaultProjects));
-                localStorage.removeItem('fundasteam_projects');
-                renderConfigInputs();
-                renderCards();
-            }
-        });
-
-        // Initialize App
-        loadProjects();
-        renderCards();
-    </script>
+    // Inicialización al cargar la página
+    renderProjects();
+  </script>
 </body>
 </html>
