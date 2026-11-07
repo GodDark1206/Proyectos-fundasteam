@@ -142,64 +142,72 @@
     <!-- JavaScript Application Logic -->
     <script>
         // Initial 8 Projects Default Data
-        const defaultProjects = [
-            {
-                id: 1,
-                title: "Proyecto 1: Análisis Exploratorio (EDA)",
-                description: "Limpieza de datos, detección de patrones e insights cualitativos utilizando registros de dataset real.",
-                tech: ["Python", "Pandas", "Seaborn"],
-                url: "https://example.com/proyecto1"
-            },
-            {
-                id: 2,
-                title: "Proyecto 2: Dashboards Interactivos",
-                description: "Visualización dinámica de indicadores clave de rendimiento (KPIs) e informes gráficos interactivos.",
-                tech: ["Power BI", "Streamlit", "Plotly"],
-                url: "https://example.com/proyecto2"
-            },
-            {
-                id: 3,
-                title: "Proyecto 3: Modelo de Regresión",
-                description: "Predicción de valores continuos y análisis estadístico inferencial para estimaciones futuras.",
-                tech: ["Scikit-Learn", "Python", "NumPy"],
-                url: "https://example.com/proyecto3"
-            },
-            {
-                id: 4,
-                title: "Proyecto 4: Clasificación y Machine Learning",
-                description: "Algoritmos supervisados de clasificación aplicados a segmentación y toma de decisiones.",
-                tech: ["Machine Learning", "Scikit-Learn"],
-                url: "https://example.com/proyecto4"
-            },
-            {
-                id: 5,
-                title: "Proyecto 5: Procesamiento de Lenguaje (NLP)",
-                description: "Análisis de sentimientos en redes sociales y extracción de texto automatizada.",
-                tech: ["Python", "NLTK", "Transformers"],
-                url: "https://example.com/proyecto5"
-            },
-            {
-                id: 6,
-                title: "Proyecto 6: Visión por Computadora",
-                description: "Detección de objetos y clasificación de imágenes utilizando redes neuronales.",
-                tech: ["OpenCV", "TensorFlow", "Keras"],
-                url: "https://example.com/proyecto6"
-            },
-            {
-                id: 7,
-                title: "Proyecto 7: Series Temporales",
-                description: "Modelos predictivos para pronóstico de tendencias basadas en datos cronológicos e históricos.",
-                tech: ["Prophet", "Statsmodels", "Pandas"],
-                url: "https://example.com/proyecto7"
-            },
-            {
-                id: 8,
-                title: "Proyecto 8: Handyman Express",
-                description: "portal de tecnicos con geolocalizacion.",
-                tech: ["Firebase", "Tailwind", "HTML5"],
-                url: "https://handyman-express-lb9dy2y4e-portafolio-0062.vercel.app"
-            }
-        ];
+        const initialProjects = [
+  {
+    id: 1,
+    title: "Proyecto 1: Análisis Exploratorio",
+    description: "Limpieza y análisis de datos estadísticos con Python.",
+    url: "URL_DEL_PROYECTO_1",
+    techs: ["Python", "Pandas", "Matplotlib"],
+    accentColor: "#00d2ff"
+  },
+  {
+    id: 2,
+    title: "Proyecto 2: Machine Learning",
+    description: "Modelo predictivo de clasificación supervisada.",
+    url: "URL_DEL_PROYECTO_2",
+    techs: ["Scikit-Learn", "Python", "NumPy"],
+    accentColor: "#8b5cf6"
+  },
+  {
+    id: 3,
+    title: "Proyecto 3: Dashboard Interactivo",
+    description: "Visualización de métricas de negocio en tiempo real.",
+    url: "URL_DEL_PROYECTO_3",
+    techs: ["Streamlit", "Plotly", "Pandas"],
+    accentColor: "#10b981"
+  },
+  {
+    id: 4,
+    title: "Proyecto 4: Procesamiento de Datos",
+    description: "Automatización de flujos de datos y ETL.",
+    url: "URL_DEL_PROYECTO_4",
+    techs: ["Python", "SQL", "Pandas"],
+    accentColor: "#f59e0b"
+  },
+  {
+    id: 5,
+    title: "Proyecto 5: Redes Neuronales",
+    description: "Modelo de Deep Learning para reconocimiento de patrones.",
+    url: "URL_DEL_PROYECTO_5",
+    techs: ["TensorFlow", "Python", "Keras"],
+    accentColor: "#ec4899"
+  },
+  {
+    id: 6,
+    title: "Proyecto 6: Web Scraper de Datos",
+    description: "Extracción y estructuración masiva de datos web.",
+    url: "URL_DEL_PROYECTO_6",
+    techs: ["BeautifulSoup", "Python", "Requests"],
+    accentColor: "#3b82f6"
+  },
+  {
+    id: 7,
+    title: "Proyecto 7: API de Datos",
+    description: "Servicio backend para consulta de modelos analíticos.",
+    url: "URL_DEL_PROYECTO_7",
+    techs: ["FastAPI", "Python", "Uvicorn"],
+    accentColor: "#06b6d4"
+  },
+  {
+    id: 8,
+    title: "Proyecto 8: Handyman Express Portfolio",
+    description: "Aplicación web interactiva y portafolio de servicios.",
+    url: "https://handyman-express-lb9dy2y4e-portafolio-0062.vercel.app/",
+    techs: ["HTML5", "TailwindCSS", "JavaScript"],
+    accentColor: "#f97316" // Color personalizado para el proyecto 8
+  }
+];
 
         let projects = [];
 
