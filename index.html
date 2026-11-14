@@ -166,17 +166,17 @@
       },
       {
         id: 3,
-        title: "Bio Expiry (Nevera Wen)",
-        category: "Gestión de Alimentos",
-        icon: "fa-utensils",
+        title: "Explora Panamá",
+        category: "Guía Turística e IA",
+        icon: "fa-compass",
         image: "",
-        description: "Control inteligente y registro de alimentos en tu nevera para gestionar fechas de caducidad y evitar desperdicios.",
-        url: "Https://bioexpiry.vercel.app?_vercel_share=K4NNgg3SswKVCQ88swOK149Yr8QwM38K",
-        techs: ["HTML5", "TailwindCSS", "JavaScript"],
-        bgColor: "#061a12",
-        borderColor: "#064e3b",
+        description: "Historia, horarios, precios de tours, ideas para fotos y cómo llegar a los lugares más bonitos de Panamá con asistencia de IA.",
+        url: "https://explore-panama-guide.lovable.app/",
+        techs: ["HTML5", "TailwindCSS", "Lovable"],
+        bgColor: "#091326",
+        borderColor: "#1e3a8a",
         textColor: "#ffffff",
-        accentColor: "#10b981"
+        accentColor: "#fb923c"
       },
       {
         id: 4,
@@ -208,31 +208,31 @@
       },
       {
         id: 6,
-        title: "Proyecto 6: Web Scraper",
-        category: "Web Data",
-        icon: "fa-spider",
+        title: "Fundesteam",
+        category: "Control Institucional",
+        icon: "fa-qrcode",
         image: "",
-        description: "Estructuración automatizada de datos a partir de plataformas web.",
-        url: "https://example.com/proyecto6",
-        techs: ["BeautifulSoup", "Python", "Requests"],
-        bgColor: "#0f172a",
-        borderColor: "#1e293b",
+        description: "Control de asistencia institucional mediante códigos QR de portería para estudiantes y supervisión de sedes en tiempo real.",
+        url: "https://fundesteamas.vercel.app/",
+        techs: ["HTML5", "TailwindCSS", "JavaScript"],
+        bgColor: "#0b1930",
+        borderColor: "#1e3a8a",
         textColor: "#ffffff",
         accentColor: "#3b82f6"
       },
       {
         id: 7,
-        title: "Proyecto 7: API REST Analítica",
-        category: "Backend",
-        icon: "fa-code",
+        title: "Producción de Eventos",
+        category: "Eventos y Espectáculos",
+        icon: "fa-sliders",
         image: "",
-        description: "Servicio en la nube para disponibilizar algoritmos analíticos.",
-        url: "https://example.com/proyecto7",
-        techs: ["FastAPI", "Uvicorn", "Python"],
-        bgColor: "#0f172a",
-        borderColor: "#1e293b",
+        description: "Producción profesional de eventos, sonido, iluminación, pantallas LED y soluciones técnicas para experiencias memorables.",
+        url: "https://agony-systeam.vercel.app/",
+        techs: ["HTML5", "TailwindCSS", "JavaScript"],
+        bgColor: "#141108",
+        borderColor: "#422e06",
         textColor: "#ffffff",
-        accentColor: "#06b6d4"
+        accentColor: "#f97316"
       },
       {
         id: 8,
@@ -251,7 +251,7 @@
     ];
 
     function getStoredProjects() {
-      const stored = localStorage.getItem('fundasteam_projects_v12');
+      const stored = localStorage.getItem('fundasteam_projects_v16');
       if (stored) {
         try { return JSON.parse(stored); } catch (e) {}
       }
@@ -498,7 +498,7 @@
       }
 
       projects = updatedProjects;
-      localStorage.setItem('fundasteam_projects_v12', JSON.stringify(projects));
+      localStorage.setItem('fundasteam_projects_v16', JSON.stringify(projects));
       renderProjects();
       closeModal();
     });
@@ -506,7 +506,7 @@
     resetDefaultsBtn.addEventListener('click', () => {
       if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
         projects = JSON.parse(JSON.stringify(defaultProjects));
-        localStorage.removeItem('fundasteam_projects_v12');
+        localStorage.removeItem('fundasteam_projects_v16');
         renderModalForm();
         renderProjects();
       }
