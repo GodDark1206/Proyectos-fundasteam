@@ -185,7 +185,7 @@
         icon: "fa-wallet",
         image: "",
         description: "Tu dinero, siempre en dólares. Sin importar cuánto se mueva tu moneda local. Gestiona tus finanzas de manera sencilla.",
-        url: "https://finvenly.netlify.app",
+        url: "https://finvely.netlify.app",
         techs: ["HTML5", "TailwindCSS", "JavaScript"],
         bgColor: "#170c2e",
         borderColor: "#3b1c7a",
@@ -241,17 +241,17 @@
         icon: "fa-screwdriver-wrench",
         image: "",
         description: "Plataforma web interactiva para plomería, electricidad y climatización a domicilio en minutos.",
-        url: "https://handyman-express-lb9dy2y4e-portafolio-0062.vercel.app/",
+        url: "https://handyman-express-nine.vercel.app/#",
         techs: ["HTML5", "TailwindCSS", "JavaScript"],
-        bgColor: "#0c1533",
-        borderColor: "#1d3461",
+        bgColor: "#14092b",
+        borderColor: "#4c1d95",
         textColor: "#ffffff",
-        accentColor: "#fbbf24"
+        accentColor: "#a855f7"
       }
     ];
 
     function getStoredProjects() {
-      const stored = localStorage.getItem('fundasteam_projects_v11');
+      const stored = localStorage.getItem('fundasteam_projects_v12');
       if (stored) {
         try { return JSON.parse(stored); } catch (e) {}
       }
@@ -498,7 +498,7 @@
       }
 
       projects = updatedProjects;
-      localStorage.setItem('fundasteam_projects_v11', JSON.stringify(projects));
+      localStorage.setItem('fundasteam_projects_v12', JSON.stringify(projects));
       renderProjects();
       closeModal();
     });
@@ -506,7 +506,7 @@
     resetDefaultsBtn.addEventListener('click', () => {
       if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
         projects = JSON.parse(JSON.stringify(defaultProjects));
-        localStorage.removeItem('fundasteam_projects_v11');
+        localStorage.removeItem('fundasteam_projects_v12');
         renderModalForm();
         renderProjects();
       }
