@@ -166,31 +166,31 @@
       },
       {
         id: 3,
-        title: "Proyecto 3: Dashboards",
-        category: "Business Intelligence",
-        icon: "fa-gauge-high",
+        title: "Bio Expiry (Nevera Wen)",
+        category: "Gestión de Alimentos",
+        icon: "fa-utensils",
         image: "",
-        description: "Cuadro de mando analítico en tiempo real para toma de decisiones.",
-        url: "https://example.com/proyecto3",
-        techs: ["Streamlit", "Plotly", "Pandas"],
-        bgColor: "#0f172a",
-        borderColor: "#1e293b",
+        description: "Control inteligente y registro de alimentos en tu nevera para gestionar fechas de caducidad y evitar desperdicios.",
+        url: "https://bioexpiry.netlify.app/inicio",
+        techs: ["HTML5", "TailwindCSS", "JavaScript"],
+        bgColor: "#061a12",
+        borderColor: "#064e3b",
         textColor: "#ffffff",
         accentColor: "#10b981"
       },
       {
         id: 4,
-        title: "Proyecto 4: Pipelines ETL",
-        category: "Data Eng",
-        icon: "fa-database",
+        title: "Finvely",
+        category: "Finanzas Personales",
+        icon: "fa-wallet",
         image: "",
-        description: "Pipelines de recolección, transformación y carga masiva de información.",
-        url: "https://example.com/proyecto4",
-        techs: ["Python", "SQL", "Pandas"],
-        bgColor: "#0f172a",
-        borderColor: "#1e293b",
+        description: "Tu dinero, siempre en dólares. Sin importar cuánto se mueva tu moneda local. Gestiona tus finanzas de manera sencilla.",
+        url: "https://finvely.netlify.app",
+        techs: ["HTML5", "TailwindCSS", "JavaScript"],
+        bgColor: "#170c2e",
+        borderColor: "#3b1c7a",
         textColor: "#ffffff",
-        accentColor: "#f59e0b"
+        accentColor: "#a855f7"
       },
       {
         id: 5,
@@ -251,7 +251,7 @@
     ];
 
     function getStoredProjects() {
-      const stored = localStorage.getItem('fundasteam_projects_v7');
+      const stored = localStorage.getItem('fundasteam_projects_v9');
       if (stored) {
         try { return JSON.parse(stored); } catch (e) {}
       }
@@ -498,7 +498,7 @@
       }
 
       projects = updatedProjects;
-      localStorage.setItem('fundasteam_projects_v7', JSON.stringify(projects));
+      localStorage.setItem('fundasteam_projects_v9', JSON.stringify(projects));
       renderProjects();
       closeModal();
     });
@@ -506,7 +506,7 @@
     resetDefaultsBtn.addEventListener('click', () => {
       if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
         projects = JSON.parse(JSON.stringify(defaultProjects));
-        localStorage.removeItem('fundasteam_projects_v7');
+        localStorage.removeItem('fundasteam_projects_v9');
         renderModalForm();
         renderProjects();
       }
