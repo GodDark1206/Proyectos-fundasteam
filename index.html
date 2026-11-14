@@ -152,17 +152,17 @@
       },
       {
         id: 2,
-        title: "Proyecto 2: Machine Learning",
-        category: "Clasificación",
-        icon: "fa-brain",
+        title: "Métodos de transporte en Panamá",
+        category: "Movilidad Urbana",
+        icon: "fa-train-subway",
         image: "",
-        description: "Modelo supervisado para clasificación y evaluación de rendimiento.",
-        url: "https://example.com/proyecto2",
-        techs: ["Scikit-Learn", "Python", "NumPy"],
-        bgColor: "#0f172a",
-        borderColor: "#1e293b",
+        description: "Explora las rutas del Metro y MetroBus, conoce los tipos de transporte en Panamá y propón nuevas ideas de movilidad.",
+        url: "https://franklin123478.github.io/metodos-de-transportes-Definitivo/",
+        techs: ["HTML5", "CSS3", "JavaScript"],
+        bgColor: "#0d261c",
+        borderColor: "#164633",
         textColor: "#ffffff",
-        accentColor: "#8b5cf6"
+        accentColor: "#34d399"
       },
       {
         id: 3,
@@ -251,7 +251,7 @@
     ];
 
     function getStoredProjects() {
-      const stored = localStorage.getItem('fundasteam_projects_v6');
+      const stored = localStorage.getItem('fundasteam_projects_v7');
       if (stored) {
         try { return JSON.parse(stored); } catch (e) {}
       }
@@ -498,7 +498,7 @@
       }
 
       projects = updatedProjects;
-      localStorage.setItem('fundasteam_projects_v6', JSON.stringify(projects));
+      localStorage.setItem('fundasteam_projects_v7', JSON.stringify(projects));
       renderProjects();
       closeModal();
     });
@@ -506,7 +506,7 @@
     resetDefaultsBtn.addEventListener('click', () => {
       if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
         projects = JSON.parse(JSON.stringify(defaultProjects));
-        localStorage.removeItem('fundasteam_projects_v6');
+        localStorage.removeItem('fundasteam_projects_v7');
         renderModalForm();
         renderProjects();
       }
