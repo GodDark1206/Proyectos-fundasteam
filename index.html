@@ -41,7 +41,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-white pb-16">
 
   <!-- Header Fijo Superior -->
   <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl">
@@ -52,90 +52,51 @@
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="font-extrabold text-xl tracking-tight text-white">FUNDASTEAM</h1>
+            <h1 class="font-extrabold text-xl tracking-tight text-white">FUNDESTEAM</h1>
             <span class="text-[10px] font-bold tracking-widest uppercase bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded-full">Ciencia de Datos</span>
           </div>
           <p class="text-xs text-slate-400 font-medium">Exposición Oficial de Proyectos Web</p>
         </div>
       </div>
-
-      <div class="flex items-center gap-3">
-        <button id="openConfigBtn" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 hover:border-cyan-500/60 px-4 py-2 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-cyan-950/40">
-          <i class="fa-solid fa-palette text-cyan-400"></i>
-          <span>Personalizar Recuadros</span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <!-- Banner Hero / Presentación -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <section class="mb-12 text-center max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 mb-4">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-        8 Aplicaciones Interactivas
-      </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-        Galería Digital de <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">Proyectos Finales</span>
-      </h2>
-      <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
-        Haz clic sobre cualquier recuadro o botón de enlace para acceder directamente a la aplicación web en vivo.
-      </p>
-    </section>
+  <!-- Contenedor General Unificado -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm">
+      
+      <!-- Banner Hero / Presentación Interna -->
+      <section class="mb-12 text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950 border border-slate-800 text-xs font-semibold text-slate-300 mb-4 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          8 Aplicaciones Interactivas
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          Galería Digital de <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">Proyectos Finales</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+          Haz clic sobre cualquier recuadro o botón de enlace para acceder directamente a la aplicación web en vivo.
+        </p>
+      </section>
 
-    <!-- Grilla de los 8 proyectos -->
-    <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Tarjetas insertadas dinámicamente -->
+      <!-- Grilla de los 8 proyectos -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Tarjetas insertadas dinámicamente -->
+      </div>
+
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 bg-slate-950 py-6 mt-12 text-center text-xs text-slate-500">
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-6 mt-16 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© 2026 Fundasteam - Curso de Ciencia de Datos.</p>
-      <p class="text-slate-600">Portafolio Web Altamente Personalizable.</p>
+      <p>© 2026 Fundesteam - Curso de Ciencia de Datos.</p>
+      <p class="text-slate-600">Portafolio Web Oficial.</p>
     </div>
   </footer>
 
-  <!-- Modal de Configuración Avanzada -->
-  <div id="configModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-      
-      <div class="p-6 border-b border-slate-800 flex items-center justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-palette text-cyan-400"></i> Personalización de Colores e Imagen
-          </h3>
-          <p class="text-xs text-slate-400 mt-1">Ajusta los fondos, bordes, textos, iconos y botones personalizados para cada tarjeta.</p>
-        </div>
-        <button id="closeConfigBtn" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <div class="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6" id="modalFormContainer">
-        <!-- Formulario generado dinámicamente -->
-      </div>
-
-      <div class="p-4 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between gap-3">
-        <button id="resetDefaultsBtn" class="text-xs text-slate-400 hover:text-red-400 font-semibold px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors">
-          Restablecer a valores iniciales
-        </button>
-        <div class="flex items-center gap-3">
-          <button id="cancelModalBtn" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-800 transition-colors">
-            Cancelar
-          </button>
-          <button id="saveConfigBtn" class="px-5 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:brightness-110 shadow-lg shadow-cyan-500/20 transition-all">
-            Guardar Cambios
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <script>
-    const defaultProjects = [
+    const projects = [
       {
         id: 1,
         title: "Fantasy LPF",
@@ -250,24 +211,7 @@
       }
     ];
 
-    function getStoredProjects() {
-      const stored = localStorage.getItem('fundasteam_projects_v16');
-      if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
-      }
-      return defaultProjects;
-    }
-
-    let projects = getStoredProjects();
-
     const projectsGrid = document.getElementById('projectsGrid');
-    const configModal = document.getElementById('configModal');
-    const openConfigBtn = document.getElementById('openConfigBtn');
-    const closeConfigBtn = document.getElementById('closeConfigBtn');
-    const cancelModalBtn = document.getElementById('cancelModalBtn');
-    const saveConfigBtn = document.getElementById('saveConfigBtn');
-    const resetDefaultsBtn = document.getElementById('resetDefaultsBtn');
-    const modalFormContainer = document.getElementById('modalFormContainer');
 
     function renderProjects() {
       projectsGrid.innerHTML = '';
@@ -285,12 +229,6 @@
             ${t.trim()}
           </span>
         `).join('');
-
-        const imageHTML = proj.image ? `
-          <div class="h-36 w-full overflow-hidden rounded-t-xl mb-4 -mt-6 -mx-6 w-[calc(100%+3rem)] border-b border-slate-800/60">
-            <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-        ` : '';
 
         const card = document.createElement('a');
         card.href = proj.url || '#';
@@ -315,8 +253,6 @@
                style="background-color: ${accent};"></div>
           
           <div>
-            ${imageHTML}
-
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md border"
                     style="color: ${accent}; background-color: ${accent}15; border-color: ${accent}30;">
@@ -333,7 +269,7 @@
               ${proj.title}
             </h3>
 
-            <p class="text-xs leading-relaxed mb-5 line-clamp-3 opacity-80" style="color: ${textColor};">
+            <p class="text-xs leading-relaxed mb-5 opacity-80" style="color: ${textColor};">
               ${proj.description}
             </p>
           </div>
@@ -354,163 +290,6 @@
         projectsGrid.appendChild(card);
       });
     }
-
-    function renderModalForm() {
-      modalFormContainer.innerHTML = '';
-
-      projects.forEach((proj, i) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = "p-4 bg-slate-950/80 border border-slate-800 rounded-xl space-y-4";
-        
-        itemDiv.innerHTML = `
-          <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
-            <span class="text-xs font-bold text-cyan-400 font-mono">RECUADRO #${i + 1}</span>
-            <span class="text-xs text-slate-500">Ajusta diseño y archivo</span>
-          </div>
-
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-900/60 p-3 rounded-lg border border-slate-800">
-            <div>
-              <label class="block text-[11px] text-slate-400 mb-1">Color Fondo</label>
-              <div class="flex items-center gap-2">
-                <input type="color" value="${proj.bgColor || '#0f172a'}" data-index="${i}" class="input-bg-color w-7 h-7 rounded border-none bg-transparent cursor-pointer">
-                <span class="text-[10px] text-slate-400 font-mono">${proj.bgColor || '#0f172a'}</span>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] text-slate-400 mb-1">Color Borde</label>
-              <div class="flex items-center gap-2">
-                <input type="color" value="${proj.borderColor || '#1e293b'}" data-index="${i}" class="input-border-color w-7 h-7 rounded border-none bg-transparent cursor-pointer">
-                <span class="text-[10px] text-slate-400 font-mono">${proj.borderColor || '#1e293b'}</span>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] text-slate-400 mb-1">Color Texto</label>
-              <div class="flex items-center gap-2">
-                <input type="color" value="${proj.textColor || '#ffffff'}" data-index="${i}" class="input-text-color w-7 h-7 rounded border-none bg-transparent cursor-pointer">
-                <span class="text-[10px] text-slate-400 font-mono">${proj.textColor || '#ffffff'}</span>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] text-slate-400 mb-1">Color Acento / Botón</label>
-              <div class="flex items-center gap-2">
-                <input type="color" value="${proj.accentColor || '#00d2ff'}" data-index="${i}" class="input-accent-color w-7 h-7 rounded border-none bg-transparent cursor-pointer">
-                <span class="text-[10px] text-slate-400 font-mono">${proj.accentColor || '#00d2ff'}</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Título del Proyecto</label>
-              <input type="text" value="${proj.title}" data-index="${i}" class="input-title w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-white outline-none">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Categoría / Badge</label>
-              <input type="text" value="${proj.category || ''}" data-index="${i}" class="input-category w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Icono FontAwesome</label>
-              <input type="text" value="${proj.icon || 'fa-globe'}" data-index="${i}" class="input-icon w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none" placeholder="fa-screwdriver-wrench">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">URL del Sitio Web Hipervinculado</label>
-              <input type="url" value="${proj.url}" data-index="${i}" class="input-url w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-cyan-300 outline-none font-mono">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Subir Captura/Imagen desde Computadora</label>
-              <input type="file" accept="image/*" data-index="${i}" class="input-file-image w-full bg-slate-900 border border-slate-800 text-xs text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-800 file:text-cyan-400 hover:file:bg-slate-700 cursor-pointer">
-              ${proj.image ? `<p class="text-[10px] text-emerald-400 mt-1">✓ Imagen cargada</p>` : ''}
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-slate-400 mb-1">Descripción</label>
-            <input type="text" value="${proj.description}" data-index="${i}" class="input-desc w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-slate-400 mb-1">Tecnologías (Separadas por comas)</label>
-            <input type="text" value="${(proj.techs || []).join(', ')}" data-index="${i}" class="input-techs w-full bg-slate-900 border border-slate-800 focus:border-cyan-500 rounded-lg px-3 py-1.5 text-xs text-slate-300 outline-none">
-          </div>
-        `;
-
-        modalFormContainer.appendChild(itemDiv);
-      });
-    }
-
-    openConfigBtn.addEventListener('click', () => {
-      renderModalForm();
-      configModal.classList.remove('hidden');
-    });
-
-    function closeModal() {
-      configModal.classList.add('hidden');
-    }
-
-    closeConfigBtn.addEventListener('click', closeModal);
-    cancelModalBtn.addEventListener('click', closeModal);
-
-    saveConfigBtn.addEventListener('click', async () => {
-      const titleInputs = document.querySelectorAll('.input-title');
-      const categoryInputs = document.querySelectorAll('.input-category');
-      const iconInputs = document.querySelectorAll('.input-icon');
-      const fileImageInputs = document.querySelectorAll('.input-file-image');
-      const urlInputs = document.querySelectorAll('.input-url');
-      const descInputs = document.querySelectorAll('.input-desc');
-      const techInputs = document.querySelectorAll('.input-techs');
-      
-      const bgColorInputs = document.querySelectorAll('.input-bg-color');
-      const borderColorInputs = document.querySelectorAll('.input-border-color');
-      const textColorInputs = document.querySelectorAll('.input-text-color');
-      const accentColorInputs = document.querySelectorAll('.input-accent-color');
-
-      const updatedProjects = [];
-
-      for (let i = 0; i < projects.length; i++) {
-        let imageDataUrl = projects[i].image || '';
-        const file = fileImageInputs[i].files[0];
-
-        if (file) {
-          imageDataUrl = await new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = (e) => resolve(e.target.result);
-            reader.readAsDataURL(file);
-          });
-        }
-
-        updatedProjects.push({
-          id: projects[i].id,
-          title: titleInputs[i].value,
-          category: categoryInputs[i].value,
-          icon: iconInputs[i].value,
-          image: imageDataUrl,
-          url: urlInputs[i].value,
-          description: descInputs[i].value,
-          techs: techInputs[i].value.split(',').map(t => t.trim()).filter(Boolean),
-          bgColor: bgColorInputs[i].value,
-          borderColor: borderColorInputs[i].value,
-          textColor: textColorInputs[i].value,
-          accentColor: accentColorInputs[i].value
-        });
-      }
-
-      projects = updatedProjects;
-      localStorage.setItem('fundasteam_projects_v16', JSON.stringify(projects));
-      renderProjects();
-      closeModal();
-    });
-
-    resetDefaultsBtn.addEventListener('click', () => {
-      if (confirm('¿Deseas restablecer todos los proyectos a los valores originales del código?')) {
-        projects = JSON.parse(JSON.stringify(defaultProjects));
-        localStorage.removeItem('fundasteam_projects_v16');
-        renderModalForm();
-        renderProjects();
-      }
-    });
 
     renderProjects();
   </script>
